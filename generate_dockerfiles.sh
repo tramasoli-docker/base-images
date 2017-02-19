@@ -29,7 +29,8 @@ generate_ssh_dockerfile() {
   for DISTRO in ${SSH_SERVER_DISTROS[@]}; do
     for RELEASE in ${SSH_SERVER_DISTROS_VERSION[@]}; do
       DOCKERFILEDIR="${BASEPATH}/${DISTRO}-${PURPOSE}/${RELEASE}"
-      mkdir -p ${DOCKERFILEDIR} ${TEMP_DIR}/${DOCKERFILEDIR}
+      mkdir -p ${DOCKERFILEDIR}/scripts ${TEMP_DIR}/${DOCKERFILEDIR}
+      /bin/cp ${BASEPATH}/Dockerfile-${PURPOSE}.bootstrap ${DOCKERFILEDIR}/scripts
       eval "cat <<EOF > ${TEMP_DIR}/${DOCKERFILEDIR}/Dockerfile
 $(<$DOCKERFILE_TPL)
 EOF" > /dev/null
