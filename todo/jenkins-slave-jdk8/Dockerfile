@@ -1,18 +1,8 @@
-FROM centos:7
-MAINTAINER Fábio Tramasoli <fabio@tramasoli.com>
-LABEL env=dev
-RUN yum -y install openssh-server shadow-utils
-COPY ../../scripts/ssh-bootstrap.sh /bootstrap.sh
-EXPOSE 22
-CMD ["/bin/bash","/bootstrap.sh"]
-
-FROM centos:7
+# This Dockerfile is used to build an image containing basic stuff to be used as a Jenkins slave build node.
+FROM tramasoli/jenkins-slave:base
 MAINTAINER Fábio Tramasoli <fabio@tramasoli.com>
 
-RUN yum -y install openssh-server shadow-utils
-COPY ../../scripts/ssh-bootstrap.sh /bootstrap.sh
-
-# Install JDK 8 (latest edition)
+# Install JDK 7,8 (latest edition)
 RUN apt-get update &&\
     apt-get install -y openjdk-8-jdk &&\
     apt-get clean -y && rm -rf /var/lib/apt/lists/*

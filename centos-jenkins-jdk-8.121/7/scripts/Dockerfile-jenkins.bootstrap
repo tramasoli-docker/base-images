@@ -1,0 +1,12 @@
+#!/bin/bash
+for key in rsa dsa ecdsa; do
+        if [ ! -e /etc/ssh/ssh_host_${key}_key ]; 
+                ssh-keygen -t ${key} -f /etc/ssh/s
+        fi
+done
+SVN_CONFIG_DIR="/var/jenkins_home/.subversion"
+mkdir -p ${SVN_CONFIG_DIR}
+if [ ! -z $http_proxy ]; then
+	echo -e "[global]\nhttp-proxy-host = ${http_proxy%:*}\nhttp-proxy-port = ${http_proxy##*:}\n" >  ${SVN_CONFIG_DIR}/servers
+fi
+echo "root:hackme" | chpasswd && /usr/sbin/sshd -D
