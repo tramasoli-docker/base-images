@@ -14,7 +14,7 @@ RUN echo -e "JAVA_HOME=\${JAVA_HOME}\nM2_HOME=\${M2_HOME}\nPATH=\${PATH}\n" > /e
     gunzip /tmp/maven.tar.gz && \
     tar -C /opt -xf /tmp/maven.tar && \
     ln -s /opt/apache-maven-${MVN_MAJOR}.${MVN_MINOR}.${MVN_PATCH} /opt/maven && \
-    curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/java.tar.gz http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/e9e7ea248e2c4826b92b3f075a80e441/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz && \
+    curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/java.tar.gz ${JVM_URL} && \
     gunzip /tmp/java.tar.gz && \
     tar -C /opt -xf /tmp/java.tar && \
     ln -s /opt/jdk1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} /opt/jdk && \
