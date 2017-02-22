@@ -7,7 +7,7 @@ ENV JAVA_HOME=/opt/jdk \
     M2_HOME=/opt/maven \
     PATH=\${PATH}:/opt/jdk/bin:/opt/maven/bin
 # installs Subversion, Git, Maven, JDK
-RUN echo -e 'JAVA_HOME=\${JAVA_HOME}\nM2_HOME=\${M2_HOME}\nPATH=\${PATH}\n' > /etc/environment && \
+RUN echo -e "JAVA_HOME=\${JAVA_HOME}\nM2_HOME=\${M2_HOME}\nPATH=\${PATH}\n" > /etc/environment && \
     yum -y install subversion git tar && \
     curl http://www-eu.apache.org/dist/maven/maven-${MVN_MAJOR}/${MVN_MAJOR}.${MVN_MINOR}.${MVN_PATCH}/binaries/apache-maven-${MVN_MAJOR}.${MVN_MINOR}.${MVN_PATCH}-bin.tar.gz \
         -o /tmp/maven.tar.gz && \
