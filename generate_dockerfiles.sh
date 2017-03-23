@@ -86,6 +86,28 @@ EOF" > /dev/null
   done
 }
 
+generate_angular_dockerfile() {
+  PURPOSE="angular-cli"
+  DOCKERFILE_TPL="${BASEPATH}/Dockerfile-${PURPOSE}.tpl"
+  for DISTRO in ${SSH_SERVER_DISTROS[@]}; do
+    for RELEASE in ${SSH_SERVER_DISTROS_VERSION[@]}; do
+      DOCKERFILEDIR="${BASEPATH}/${DISTRO}-${PURPOSE}/${RELEASE}"
+      mkdir -p ${DOCKERFILEDIR}/scripts ${TEMP_DIR}/${DOCKERFILEDIR}
+      /bin/cp ${BASEPATH}/Dockerfile-${PURPOSE}.bootstrap ${DOCKERFILEDIR}/scripts
+      eval "cat <<EOF > ${TEMP_DIR}/${DOCKERFILEDIR}/Dockerfile
+$(<$DOCKERFILE_TPL)
+EOF" > /dev/null
+      if [ "`md5sum ${TEMP_DIR}/${DOCKERFILEDIR}/Dockerfile| awk '{print $1}'`" != "`md5sum ${DOCKERFILEDIR}/Dockerfile| awk '{print $1}'`" ]; then
+        /bin/cp ${TEMP_DIR}/${DOCKERFILEDIR}/Dockerfile ${DOCKERFILEDIR}/Dockerfile
+        echo "- You *must* 'git add ${DOCKERFILEDIR}/Dockerfile', it has been changed!!!"
+      else
+        echo "- File '${DOCKERFILEDIR}/Dockerfile' it's already ok!"
+      fi
+      /bin/rm ${TEMP_DIR}/${DOCKERFILEDIR}/Dockerfile
+    done
+  done
+}
+
 main() {
   case $1 in
     ssh)
@@ -95,6 +117,10 @@ main() {
     jenkins)
       echo "Generating $1 image servers"
       generate_jenkins_dockerfile
+      ;;
+    angular)
+      echo "Generating $1 image servers"
+      generate_angular_dockerfile
       ;;
     *)
       help
