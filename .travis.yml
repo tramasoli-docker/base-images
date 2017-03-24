@@ -7,7 +7,7 @@ services:
 
 install:
   - docker build -t test/centos7-angular-cli-1.0.0-rc4 centos-angular-cli/7
-  - docker run -d -p 127.0.0.1:22:22 --name centos7-angular-cli-1.0.0-rc4 test/centos7-angular-cli-1.0.0-rc4
+  - docker run -d --name centos7-angular-cli-1.0.0-rc4 test/centos7-angular-cli-1.0.0-rc4
 
 before_script:
   - pip install ansible
