@@ -2,17 +2,34 @@ language: python
 python:
   - 2.7
 
+branches:
+  only:
+    - master
+
+env:
+  matrix:
+    - DOCKERFILE=centos-angular-cli/7
+    #- DOCKERFILE=centos-jenkins-jdk-7.80
+    #- DOCKERFILE=centos-jenkins-jdk-8.102
+    #- DOCKERFILE=centos-jenkins-jdk-8.111
+    #- DOCKERFILE=centos-jenkins-jdk-8.121
+    #- DOCKERFILE=centos-jenkins-jdk-8.92
+    #- DOCKERFILE=centos-ssh
+    #- DOCKERFILE=oraclelinux-angular-cli
+    #- DOCKERFILE=oraclelinux-jenkins-jdk-7.80
+    #- DOCKERFILE=oraclelinux-jenkins-jdk-8.102
+    #- DOCKERFILE=oraclelinux-jenkins-jdk-8.111
+    #- DOCKERFILE=oraclelinux-jenkins-jdk-8.121
+    #- DOCKERFILE=oraclelinux-jenkins-jdk-8.92
+    #- DOCKERFILE=oraclelinux-ssh
+
 services:
   - docker
 
-install:
-  - docker build -t test/centos7-angular-cli-1.0.0-rc4 centos-angular-cli/7
-  - docker run -d --name centos7-angular-cli-1.0.0-rc4 test/centos7-angular-cli-1.0.0-rc4
 
-before_script:
-  - pip install ansible
+install:
+  - docker build -t test/$DOCKERFILE $DOCKERFILE
+  - docker run -d --name $DOCKERFILE test/$DOCKERFILE
 
 script:
-  - docker exec -it centos7-angular-cli-1.0.0-rc4 java -version | grep 1.8
-  - docker exec -it centos7-angular-cli-1.0.0-rc4 node --version | grep v6.
-  - docker exec -it centos7-angular-cli-1.0.0-rc4 ng version | grep angular\/cli\:\ 1.0.0-rc\.4
+  - $DOCKERFILE/travis-test.sh
