@@ -118,10 +118,10 @@ main() {
       echo "Generating $1 image servers"
       generate_jenkins_dockerfile
       ;;
-    angular)
-      echo "Generating $1 image servers"
-      generate_angular_dockerfile
-      ;;
+    #angular)
+    #  echo "Generating $1 image servers"
+    #  generate_angular_dockerfile
+    #  ;;
     *)
       help
       ;;

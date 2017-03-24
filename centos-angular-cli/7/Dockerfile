@@ -1,4 +1,4 @@
-FROM centos:7
+FROM tramasoli/base-images:centos7-jenkins-jdk-8.121
 LABEL maintainer "Fábio Tramasoli <fabio@tramasoli.com>"
 LABEL env=dev
 RUN yum -y install openssh-server shadow-utils
