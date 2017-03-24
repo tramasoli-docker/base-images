@@ -28,8 +28,8 @@ services:
 
 
 install:
-  - docker build -t test/$DOCKERFILE $DOCKERFILE
-  - docker run -d --name $DOCKERFILE test/$DOCKERFILE
+  - docker build -t test/${DOCKERFILE/\//-} $DOCKERFILE
+  - docker run -d --name ${DOCKERFILE/\//-} test/${DOCKERFILE/\//-}
 
 script:
-  - $DOCKERFILE/travis-test.sh
+  - $DOCKERFILE/travis-test.sh ${DOCKERFILE/\//-}
