@@ -1,3 +1,5 @@
+# Travis CI Status [![Build Status](https://travis-ci.org/tramasoli-docker/base-images.svg?branch=master)](https://travis-ci.org/tramasoli-docker/base-images)
+
 # My docker base-images
 In here you'll find my base images for use with docker.
 
@@ -17,4 +19,8 @@ In here you'll find my base images for use with docker.
 
 ### oraclelinux-jenkins
 * 6
+* 7
+
+## Jenkins slave angular-cli
+### centos-angular-cli
 * 7

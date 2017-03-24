@@ -1,0 +1,18 @@
+language: python
+python:
+  - 2.7
+
+services:
+  - docker
+
+install:
+  - docker build -t test/centos7-angular-cli-1.0.0-rc4 centos-angular-cli/7
+  - docker run -d -p 127.0.0.1:22:22 --name centos7-angular-cli-1.0.0-rc4 test/centos7-angular-cli-1.0.0-rc4
+
+before_script:
+  - pip install ansible
+
+script:
+  - docker exec -it centos7-angular-cli-1.0.0-rc4 java -version | grep 1.8
+  - docker exec -it centos7-angular-cli-1.0.0-rc4 node --version | grep v6.
+  - docker exec -it centos7-angular-cli-1.0.0-rc4 ng version | grep angular\/cli\:\ 1.0.0-rc\.4
