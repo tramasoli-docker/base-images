@@ -8,6 +8,7 @@ branches:
 
 env:
   matrix:
+    - DOCKERFILE=centos-docker-client/7
     - DOCKERFILE=centos-angular-cli/7
     - DOCKERFILE=centos-jenkins-jdk-7.80/7
     #- DOCKERFILE=centos-jenkins-jdk-8.102/7
