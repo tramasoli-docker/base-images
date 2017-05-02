@@ -1,7 +1,4 @@
 # My docker base-images
-In here you'll find my base images for use with docker.
-
-# Badges
 
 [![Build Status](https://travis-ci.org/tramasoli-docker/base-images.svg?branch=master)](https://travis-ci.org/tramasoli-docker/base-images)
 ![Issues](https://img.shields.io/github/issues/tramasoli-docker/base-images.svg)
@@ -9,6 +6,8 @@ In here you'll find my base images for use with docker.
 ![Stars](https://img.shields.io/github/stars/tramasoli-docker/base-images.svg)
 ![LicenseMIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Docker Automated](https://img.shields.io/docker/automated/tramasoli/base-images.svg)
+
+In here you'll find my base images for use with docker.
 
 ## SSH server
 ### centos-ssh
