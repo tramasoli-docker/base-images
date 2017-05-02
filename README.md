@@ -5,7 +5,7 @@
 ![Forks](https://img.shields.io/github/forks/tramasoli-docker/base-images.svg)
 ![Stars](https://img.shields.io/github/stars/tramasoli-docker/base-images.svg)
 ![LicenseMIT](https://img.shields.io/badge/license-MIT-blue.svg)
-![Docker Automated](https://img.shields.io/docker/automated/tramasoli/base-images.svg)
+[![Docker Automated](https://img.shields.io/docker/automated/tramasoli/base-images.svg)](https://hub.docker.com/r/tramasoli/base-images/tags/)
 
 In here you'll find my base images for use with docker.
 
