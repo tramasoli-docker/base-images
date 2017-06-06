@@ -10,7 +10,6 @@ env:
   matrix:
     - DOCKERFILE=centos-docker-client/7
     - DOCKERFILE=centos-angular-cli/7
-    - DOCKERFILE=centos-jenkins-jdk-8.121/7
     - DOCKERFILE=centos-jenkins-jdk-8/7
     - DOCKERFILE=centos-ssh/7
     #- DOCKERFILE=oraclelinux-angular-cli/7
