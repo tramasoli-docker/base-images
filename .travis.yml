@@ -10,18 +10,10 @@ env:
   matrix:
     - DOCKERFILE=centos-docker-client/7
     - DOCKERFILE=centos-angular-cli/7
-    #- DOCKERFILE=centos-jenkins-jdk-7.80/7
-    #- DOCKERFILE=centos-jenkins-jdk-8.102/7
-    #- DOCKERFILE=centos-jenkins-jdk-8.111/7
-    - DOCKERFILE=centos-jenkins-jdk-8.121/7
-    #- DOCKERFILE=centos-jenkins-jdk-8.92/7
+    - DOCKERFILE=centos-jenkins-jdk-8/7
     - DOCKERFILE=centos-ssh/7
     #- DOCKERFILE=oraclelinux-angular-cli/7
-    #- DOCKERFILE=oraclelinux-jenkins-jdk-7.80/7
-    #- DOCKERFILE=oraclelinux-jenkins-jdk-8.102/7
-    #- DOCKERFILE=oraclelinux-jenkins-jdk-8.111/7
-    - DOCKERFILE=oraclelinux-jenkins-jdk-8.121/7
-    #- DOCKERFILE=oraclelinux-jenkins-jdk-8.92/7
+    - DOCKERFILE=oraclelinux-jenkins-jdk-8/7
     - DOCKERFILE=oraclelinux-ssh/7
 
 services:
